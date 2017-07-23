@@ -5,18 +5,25 @@ class Location extends Component {
         super(props);
 
         this.state = {
-            name: null,
             temperature: null,
             humidity: null,
         };
     }
 
     componentDidMount() {
+        this.fetchCurrentData();
+        this.timer = setInterval(() => this.fetchCurrentData(), 60000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    fetchCurrentData() {
         fetch(`https://virtualwolf.org/weather/api/v2/locations/${this.props.location}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
-                name: this.props.location,
                 temperature: response.temperature,
                 humidity: response.humidity,
             });
@@ -26,7 +33,7 @@ class Location extends Component {
     render() {
         return (
             <div>
-                <h2 className="titleCase">{this.state.name}</h2>
+                <h2 className="titleCase">{this.props.location}</h2>
                 <p><strong>{this.state.temperature}</strong>&deg;C and {this.state.humidity}% humidity</p>
             </div>
         )
