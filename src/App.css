@@ -1,3 +1,12 @@
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .App {
     text-align: center;
 }
@@ -6,6 +15,7 @@
     background-color: #dd4200;
     padding: 15px;
     color: white;
+    margin-bottom: 5em;
 }
 
 .App-body {
@@ -14,4 +24,27 @@
 
 .titleCase {
     text-transform: capitalize;
+}
+
+.Location-item {
+    margin-bottom: 5em;
+}
+
+.Media-item {
+    margin-bottom: 8em;
+}
+
+.Media-image {
+    max-width: 800px;
+}
+
+nav ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    padding: 1em;
+    margin: 0.5em;
 }

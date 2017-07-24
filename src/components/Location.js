@@ -32,7 +32,7 @@ class Location extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Location-item">
                 <h2 className="titleCase">{this.props.location}</h2>
                 <p><strong>{this.state.temperature}</strong>&deg;C and {this.state.humidity}% humidity</p>
             </div>
