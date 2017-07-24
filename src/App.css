@@ -42,7 +42,13 @@ a:hover {
 }
 
 .Media-image {
-    max-width: 800px;
+    max-width: 1024px;
+}
+
+@media screen and ( max-width: 600px ) {
+    .Media-image {
+        max-width: 100%;
+    }
 }
 
 nav ul {
