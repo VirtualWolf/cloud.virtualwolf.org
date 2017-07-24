@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import Loader from 'react-loader';
 
 class Location extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            temperature: null,
-            humidity: null,
+            loaded: false,
+            temperature: '–',
+            humidity: '–',
         };
     }
 
@@ -24,6 +26,7 @@ class Location extends Component {
         .then(response => response.json())
         .then(response => {
             this.setState({
+                loaded: true,
                 temperature: response.temperature,
                 humidity: response.humidity,
             });
@@ -32,10 +35,12 @@ class Location extends Component {
 
     render() {
         return (
-            <div className="Location-item">
-                <h2 className="titleCase">{this.props.location}</h2>
-                <p><strong>{this.state.temperature}</strong>&deg;C and {this.state.humidity}% humidity</p>
-            </div>
+            <Loader loaded={this.state.loaded}>
+                <div className="Location-item">
+                    <h2 className="titleCase">{this.props.location}</h2>
+                    <p><strong>{this.state.temperature}</strong>&deg;C and {this.state.humidity}% humidity</p>
+                </div>
+            </Loader>
         )
     }
 }
