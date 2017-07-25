@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MediaItem from './MediaItem';
+import MediaItemList from './MediaItemList';
 import Loader from 'react-loader';
 
 class Media extends Component {
@@ -30,11 +30,7 @@ class Media extends Component {
     render() {
         return (
             <Loader loaded={this.state.loaded}>
-                <div>
-                    {this.state.items.map(item => {
-                        return <MediaItem key={item.id} url={item.url} thumbnailUrl={item.thumbnailUrl} context={item.context} />
-                    })}
-                </div>
+                <MediaItemList items={this.state.items} />
             </Loader>
         )
     }
