@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Assistant|Montserrat);
 
 a {
-    color: #fff;
+    color: #dd4200;
     text-decoration: none;
 }
 
@@ -25,6 +25,15 @@ a:hover {
     font-family: Montserrat, sans-serif;
 }
 
+.App-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.App-header a:hover {
+    text-decoration: underline;
+}
+
 .App-body {
     font-size: large;
 }
@@ -37,18 +46,17 @@ a:hover {
     margin-bottom: 5em;
 }
 
+.loader {
+    display: none;
+}
+
 .Media-item {
     margin-bottom: 8em;
 }
 
 .Media-image {
-    max-width: 1024px;
-}
-
-@media screen and ( max-width: 600px ) {
-    .Media-image {
-        max-width: 100%;
-    }
+    width: 1024px;
+    max-width: 100%;
 }
 
 nav ul {
@@ -60,4 +68,37 @@ nav ul li {
     display: inline;
     padding: 1em;
     margin: 0.5em;
+}
+
+.Paginator {
+    padding-bottom: 5em;
+}
+
+.Paginator-link {
+    padding: 0 1em;
+}
+
+@media screen and ( max-width: 600px ) {
+    .App-header {
+        margin-bottom: 2em;
+    }
+
+    .Media-image {
+        max-width: 100%;
+    }
+
+    nav ul li {
+        display: block;
+        font-size: 150%;
+        padding: 0.25em;
+    }
+
+    .Paginator {
+        font-size: 150%;
+        padding-bottom: 1.6em;
+    }
+
+    .Media-item:last-child {
+        margin-bottom: 4em;
+    }
 }

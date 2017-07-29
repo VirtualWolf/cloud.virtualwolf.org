@@ -27,6 +27,7 @@ const App = () => {
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/media" component={Media} />
+                <Route path="/media/:page" component={Media} />
             </div>
         </Router>
     )
