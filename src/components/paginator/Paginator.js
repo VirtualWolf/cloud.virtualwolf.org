@@ -5,32 +5,42 @@ class Paginator extends Component {
     constructor(props) {
         super(props);
 
-        this.previousPage = undefined;
-        this.nextPage = undefined;
+        this.state = {
+            previousPage: undefined,
+            nextPage: undefined,
+        };
     }
 
-    componentWillMount() {
-        this.calculateNextPage();
-        this.calculatePreviousPage();
+    componentDidMount() {
+        this.calculatePageNumbers(this.props.currentPage);
     }
 
-    calculateNextPage() {
-        this.nextPage = +this.props.currentPage + +1;
+    componentWillReceiveProps() {
+        this.calculatePageNumbers(this.props.currentPage);
     }
 
-    calculatePreviousPage() {
-        if (this.props.currentPage > 1) {
-            this.previousPage = this.props.currentPage - 1;
+    calculatePageNumbers(page = 1) {
+        const nextPage = +page + 1;
+        let previousPage;
+
+        if (page > 1) {
+            previousPage = page - 1;
         } else {
-            this.previousPage = 1;
+            previousPage = 1;
         }
+
+        this.setState({
+            previousPage: previousPage,
+            nextPage: nextPage,
+        });
+
     }
 
     render() {
         return (
             <div className="Paginator">
-                <PaginatorLink page={this.previousPage} basePath={this.props.basePath} linkText="&larr; Previous" />
-                <PaginatorLink page={this.nextPage} basePath={this.props.basePath} linkText="Next &rarr;" />
+                <PaginatorLink page={this.state.previousPage} basePath={this.props.basePath} linkText="&larr; Previous" />
+                <PaginatorLink page={this.state.nextPage} basePath={this.props.basePath} linkText="Next &rarr;" />
             </div>
         )
     }

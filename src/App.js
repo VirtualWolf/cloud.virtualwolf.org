@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
     return (
-        <Router>
+        <Router onUpdate={() => window.scrollTo(0,0)}>
             <div className="App">
                 <div className="App-header">
                     <img src={title} alt="virtualwolf.cloud" />
@@ -26,8 +26,7 @@ const App = () => {
                 </div>
 
                 <Route exact path="/" component={Home} />
-                <Route exact path="/media" component={Media} />
-                <Route path="/media/:page" component={Media} />
+                <Route path="/media/:page?" component={Media} />
             </div>
         </Router>
     )

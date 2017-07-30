@@ -14,18 +14,18 @@ class Media extends Component {
         };
     }
 
-    componentDidMount() {
-        this.fetchMediaItems();
-    }
-
-    componentWillUnmount() {
+    componentWillReceiveProps(nextProps) {
         this.setState({
             loaded: false
-        })
+        });
+        this.fetchMediaItems(nextProps.match.params.page);
     }
 
-    fetchMediaItems() {
-        const page = this.props.match.params.page || 1;
+    componentDidMount() {
+        this.fetchMediaItems(this.props.match.params.page);
+    }
+
+    fetchMediaItems(page = 1) {
         const perPage = 10;
         const offset = (perPage * (page || 0)) - perPage;
 
@@ -42,10 +42,10 @@ class Media extends Component {
     render() {
         return (
             <div>
+                <Paginator currentPage={this.props.match.params.page} basePath="/media/" />
                 <Loader loaded={this.state.loaded}>
-                    <Paginator currentPage={this.props.match.params.page || 1} basePath="/media/" />
                     <MediaItemList items={this.state.items} />
-                    <Paginator currentPage={this.props.match.params.page || 1} basePath="/media/" />
+                    <Paginator currentPage={this.props.match.params.page} basePath="/media/" />
                 </Loader>
             </div>
         )
