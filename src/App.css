@@ -47,7 +47,7 @@ a:hover {
 }
 
 .loader {
-    display: none;
+    position: relative;
 }
 
 .Media-item {
@@ -55,7 +55,6 @@ a:hover {
 }
 
 .Media-image {
-    width: 1024px;
     max-width: 100%;
 }
 
