@@ -7,7 +7,7 @@ class MediaItemList extends Component {
                 {this.props.items.map(item => (
                     <div className="Media-item" key={item.id}>
                         <img src={item.thumbnailUrl} alt={item.context} className="Media-image" />
-                        <p>{item.context}</p>
+                        <p dangerouslySetInnerHTML={{__html: item.context}} />
                     </div>
                 ))}
             </div>
