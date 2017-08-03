@@ -20,7 +20,17 @@ class Paginator extends Component {
     }
 
     calculatePageNumbers(page = 1) {
-        const nextPage = +page + 1;
+        const perPage = 10;
+        const lastPage = Math.ceil(this.props.total / perPage)
+
+        let nextPage;
+
+        if (+page === lastPage) {
+            nextPage = +page;
+        } else {
+            nextPage = +page + 1;
+        }
+
         let previousPage;
 
         if (page > 1) {

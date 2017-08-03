@@ -11,6 +11,7 @@ class Media extends Component {
         this.state = {
             loaded: false,
             items: [],
+            totalPostCount: undefined,
         };
     }
 
@@ -26,15 +27,13 @@ class Media extends Component {
     }
 
     fetchMediaItems(page = 1) {
-        const perPage = 10;
-        const offset = (perPage * (page || 0)) - perPage;
-
-        fetch(`https://virtualwolf.org/i/api/v1/contexts?start=${offset}`)
+        fetch(`https://virtualwolf.org/i/api/v1/contexts?page=${page}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
                 loaded: true,
-                items: response,
+                items: response.posts,
+                totalPostCount: response.total
             });
         });
     }
@@ -42,10 +41,11 @@ class Media extends Component {
     render() {
         return (
             <div>
-                <Paginator currentPage={this.props.match.params.page} basePath="/media/" />
+                <Paginator currentPage={this.props.match.params.page} total={this.state.totalPostCount} basePath="/media/" />
+
                 <Loader loaded={this.state.loaded}>
                     <MediaItemList items={this.state.items} />
-                    <Paginator currentPage={this.props.match.params.page} basePath="/media/" />
+                    <Paginator currentPage={this.props.match.params.page} total={this.state.totalPostCount} basePath="/media/" />
                 </Loader>
             </div>
         )
