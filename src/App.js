@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import Media from './components/Media';
-import title from './title.png';
+import title from './title.svg';
 import './App.css';
 
 const App = () => {
@@ -14,8 +14,8 @@ const App = () => {
         <Router onUpdate={() => window.scrollTo(0,0)}>
             <div className="App">
                 <div className="App-header">
-                    <img src={title} alt="virtualwolf.cloud" />
-                    <h1>virtualwolf.cloud</h1>
+                    <img src={title} alt="virtualwolf.cloud" id="App-headerImage" />
+                    <h1 id="App-titleText">virtualwolf.cloud</h1>
 
                     <nav>
                         <ul>

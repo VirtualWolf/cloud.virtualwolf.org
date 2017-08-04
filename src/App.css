@@ -21,6 +21,11 @@ a:hover {
     margin-bottom: 5em;
 }
 
+#App-headerImage {
+    width: 100px;
+    height: 100px;
+}
+
 .App-header h1 {
     font-family: Montserrat, sans-serif;
 }
@@ -82,8 +87,20 @@ nav ul li {
         margin-bottom: 2em;
     }
 
+    #App-titleText {
+        display: none;
+    }
+
+    .Location-item {
+        margin-bottom: 2em;
+    }
+
     .Media-image {
         max-width: 100%;
+    }
+
+    .Media-item:last-child {
+        margin-bottom: 4em;
     }
 
     nav ul li {
@@ -95,9 +112,5 @@ nav ul li {
     .Paginator {
         font-size: 150%;
         padding-bottom: 1.6em;
-    }
-
-    .Media-item:last-child {
-        margin-bottom: 4em;
     }
 }
