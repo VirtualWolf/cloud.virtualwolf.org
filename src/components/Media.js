@@ -27,7 +27,7 @@ class Media extends Component {
     }
 
     fetchMediaItems(page = 1) {
-        fetch(`https://virtualwolf.org/i/api/v1/contexts?page=${page}`)
+        fetch(`https://virtualwolf.org/rest/media?page=${page}`)
         .then(response => response.json())
         .then(response => {
             this.setState({

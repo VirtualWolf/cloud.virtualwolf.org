@@ -22,7 +22,7 @@ class Location extends Component {
     }
 
     fetchCurrentData() {
-        fetch(`https://virtualwolf.org/weather/api/v2/locations/${this.props.location}`)
+        fetch(`https://virtualwolf.org/rest/weather/locations/${this.props.location}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
