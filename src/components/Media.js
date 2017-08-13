@@ -24,7 +24,7 @@ class Media extends Component {
     }
 
     fetchItems(page = 1) {
-        fetch(`http://infinity:1337/rest/media?page=${page}`)
+        fetch(`https://virtualwolf.org/rest/media?page=${page}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
