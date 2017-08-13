@@ -43,7 +43,6 @@ class Paginator extends Component {
             previousPage: previousPage,
             nextPage: nextPage,
         });
-
     }
 
     render() {

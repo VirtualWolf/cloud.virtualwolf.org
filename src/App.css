@@ -55,12 +55,13 @@ a:hover {
     position: relative;
 }
 
-.Media-item {
+.Images-item {
     margin-bottom: 8em;
 }
 
-.Media-image {
-    max-width: 100%;
+.Images-image {
+    max-width: 1024px;
+    max-height: 1024px;
 }
 
 nav ul {
@@ -95,11 +96,11 @@ nav ul li {
         margin-bottom: 2em;
     }
 
-    .Media-image {
+    .Images-image {
         max-width: 100%;
     }
 
-    .Media-item:last-child {
+    .Images-item:last-child {
         margin-bottom: 4em;
     }
 

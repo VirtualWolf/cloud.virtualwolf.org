@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ImagesList from './ImagesList';
 
-class Media extends Component {
+class Photos extends Component {
     constructor() {
         super();
 
@@ -24,7 +24,7 @@ class Media extends Component {
     }
 
     fetchItems(page = 1) {
-        fetch(`http://infinity:1337/rest/media?page=${page}`)
+        fetch(`https://virtualwolf.org/rest/photos?page=${page}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
@@ -42,10 +42,10 @@ class Media extends Component {
                 currentPage={this.props.match.params.page || 1}
                 totalPostCount={this.state.totalPostCount}
                 loaded={this.state.loaded}
-                basePath={"/media/"}
+                basePath={"/photos/"}
             />
         )
     }
 }
 
-export default Media;
+export default Photos;

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import Media from './components/Media';
+import Photos from './components/Photos';
 import title from './title.svg';
 import './App.css';
 
@@ -21,12 +22,14 @@ const App = () => {
                         <ul>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/media">Media</Link></li>
+                            <li><Link to="/photos">Photos</Link></li>
                         </ul>
                     </nav>
                 </div>
 
                 <Route exact path="/" component={Home} />
                 <Route path="/media/:page?" component={Media} />
+                <Route path="/photos/:page?" component={Photos} />
             </div>
         </Router>
     )
