@@ -5,8 +5,7 @@ import {
     Link
 } from 'react-router-dom';
 import Home from './components/Home';
-import Media from './components/Media';
-import Photos from './components/Photos';
+import Images from './components/Images';
 import title from './title.svg';
 import './App.css';
 
@@ -28,8 +27,8 @@ const App = () => {
                 </div>
 
                 <Route exact path="/" component={Home} />
-                <Route path="/media/:page?" component={Media} />
-                <Route path="/photos/:page?" component={Photos} />
+                <Route path="/media/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/media" basePath="/media/" {...props} />} />
+                <Route path="/photos/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/photos" basePath="/photos/" {...props} />} />
             </div>
         </Router>
     )
