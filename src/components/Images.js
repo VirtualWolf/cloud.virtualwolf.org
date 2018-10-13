@@ -31,7 +31,9 @@ class Images extends Component {
         .then(response => {
             this.setState({
                 loaded: true,
-                items: response.items,
+                items: this.props.type === 'media'
+                    ? response.posts
+                    : response.items,
                 totalPostCount: response.total,
                 currentPage: this.props.match.params.page,
             });
@@ -46,6 +48,7 @@ class Images extends Component {
                 totalPostCount={this.state.totalPostCount}
                 loaded={this.state.loaded}
                 basePath={this.props.basePath}
+                type={this.props.type}
             />
         )
     }

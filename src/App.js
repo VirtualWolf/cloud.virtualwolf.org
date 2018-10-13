@@ -27,8 +27,8 @@ const App = () => {
                 </div>
 
                 <Route exact path="/" component={Home} />
-                <Route path="/media/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/media" basePath="/media/" {...props} />} />
-                <Route path="/photos/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/photos" basePath="/photos/" {...props} />} />
+                <Route path="/media/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/media" basePath="/media/" type="media" {...props} />} />
+                <Route path="/photos/:page?" render={(props) => <Images url="https://virtualwolf.org/rest/photos" basePath="/photos/" type="photos" {...props} />} />
             </div>
         </Router>
     )
