@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+  nginx:
+    image: virtualwolf/cloud.virtualwolf.org:latest
+    ports:
+      - 127.0.0.1:${PORT}:80
+    restart: unless-stopped
